@@ -1,0 +1,29 @@
+/*
+ * Copyright (c) 2021 Kazuyuki Arimatsu
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+/ {
+	kscan0: kscan {
+		compatible = "zmk,kscan-gpio-matrix";
+		label = "KSCAN";
+		diode-direction = "col2row";
+		row-gpios
+			= <&connector0 16 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			, <&connector0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			, <&connector0 18 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			, <&connector0 19 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			, <&connector0 20 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>
+			;
+		col-gpios
+			= <&connector0 9  GPIO_ACTIVE_HIGH>
+			, <&connector0 10 GPIO_ACTIVE_HIGH>
+			, <&connector0 11 GPIO_ACTIVE_HIGH>
+			, <&connector0 12 GPIO_ACTIVE_HIGH>
+			, <&connector0 13 GPIO_ACTIVE_HIGH>
+			, <&connector0 14 GPIO_ACTIVE_HIGH>
+			, <&connector0 15 GPIO_ACTIVE_HIGH>
+			;
+	};
+};

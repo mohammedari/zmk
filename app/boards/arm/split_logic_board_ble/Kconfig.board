@@ -1,0 +1,7 @@
+# Copyright (c) 2021 Kazuyuki Arimatsu
+# SPDX-License-Identifier: MIT
+
+config BOARD_SPLIT_LOGIC_BOARD_BLE
+	bool "Split Logic Board BLE"
+	depends on SOC_NRF52840_QIAA
+
