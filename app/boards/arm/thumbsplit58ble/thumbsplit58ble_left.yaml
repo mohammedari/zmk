@@ -1,5 +1,5 @@
-identifier: split_logic_board_ble
-name: Split Logic Board BLE
+identifier: thumbsplit58ble_left
+name: Thumbsplit58 BLE
 type: mcu
 arch: arm
 toolchain:

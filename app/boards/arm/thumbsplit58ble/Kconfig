@@ -4,4 +4,4 @@ config BOARD_ENABLE_DCDC
 	bool "Enable DCDC mode"
 	select SOC_DCDC_NRF52X
 	default y
-	depends on BOARD_SPLIT_LOGIC_BOARD_BLE
+	depends on (BOARD_THUMBSPLIT58_BLE_LEFT || BOARD_THUMBSPLIT58_BLE_RIGHT)

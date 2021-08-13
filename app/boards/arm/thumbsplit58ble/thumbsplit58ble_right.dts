@@ -1,0 +1,24 @@
+/*
+ * Copyright (c) 2021 Kazuyuki Arimatsu
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "thumbsplit58ble.dtsi"
+
+conn_io: &conn_io_right {};
+
+&spi1 {
+	mosi-pin = <29>; //P0.29
+	// Unused pins, needed for SPI definition, but not used by the ws2812 driver itself.
+	sck-pin = <5>;
+	miso-pin = <7>;
+};
+
+&led_strip {
+	chain-length = <30>;
+};
+
+&default_transform {
+	col-offset = <7>;
+};

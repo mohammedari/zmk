@@ -1,0 +1,58 @@
+# Copyright (c) 2021 Kazuyuki Arimatsu
+# SPDX-License-Identifier: MIT
+
+if BOARD_THUMBSPLIT58_BLE_LEFT
+
+config ZMK_KEYBOARD_NAME
+	default "Thumbsplit58 BLE"
+
+config ZMK_SPLIT_BLE_ROLE_CENTRAL
+	default y
+
+endif #BOARD_THUMBSPLIT58_BLE_LEFT
+
+if BOARD_THUMBSPLIT58_BLE_RIGHT
+
+config ZMK_KEYBOARD_NAME
+	# Use shorter name here due to maximum length limitation
+	default "Thumbsplit58 R"
+
+endif #BOARD_THUMBSPLIT58_BLE_RIGHT
+
+if BOARD_THUMBSPLIT58_BLE_LEFT || BOARD_THUMBSPLIT58_BLE_RIGHT
+
+config BOARD
+	default "Thumbsplit58 BLE"
+
+if USB
+
+config USB_NRFX
+	default y
+
+config USB_DEVICE_STACK
+	default y
+
+endif # USB
+
+config BT_CTLR
+	default BT
+
+config ZMK_BLE
+	default y
+
+config ZMK_USB
+	default y
+
+config ZMK_BATTERY_VOLTAGE_DIVIDER
+	default y
+
+config ZMK_SPLIT
+	default y
+
+config ZMK_RGB_UNDERGLOW
+	default y
+
+config WS2812_STRIP
+	default y
+
+endif # BOARD_THUMBSPLIT58_BLE_LEFT || BOARD_THUMBSPLIT58_BLE_RIGHT

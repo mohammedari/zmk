@@ -1,0 +1,7 @@
+/*
+ * Copyright (c) 2021 Kazuyuki Arimatsu
+ *
+ * SPDX-License-Identifier: MIT
+ */
+
+#include "thumbsplit58ble.keymap"
