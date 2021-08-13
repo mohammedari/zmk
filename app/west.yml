@@ -4,11 +4,13 @@ manifest:
       url-base: https://github.com/zephyrproject-rtos
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
+    - name: mohammedari
+      url-base: https://github.com/mohammedari
     - name: microsoft
       url-base: https://github.com/microsoft
   projects:
     - name: zephyr
-      remote: zmkfirmware
+      remote: mohammedari
       revision: v2.5.0+zmk-fixes
       clone-depth: 1
       import:
