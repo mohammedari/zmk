@@ -5,7 +5,7 @@
  */
 
 / {
-	conn_io_right: connector {
+	conn_io_right: connector_right {
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
@@ -26,7 +26,7 @@
 			;
 	};
 
-	conn_io_left: connector {
+	conn_io_left: connector_left {
 		#gpio-cells = <2>;
 		gpio-map-mask = <0xffffffff 0xffffffc0>;
 		gpio-map-pass-thru = <0 0x3f>;
