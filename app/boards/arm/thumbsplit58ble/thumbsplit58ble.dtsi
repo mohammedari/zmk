@@ -6,6 +6,7 @@
 
 /dts-v1/;
 #include <nordic/nrf52840_qiaa.dtsi>
+#include <dt-bindings/led/led.h>
 #include "connector.dtsi"
 #include "kscan.dtsi"
 
@@ -43,8 +44,6 @@
 	/* Cannot be used together with i2c0. */
 	status = "okay";
 
-	clock-frequency = <8000000>;
-
 	led_strip: ws2812@0 {
 		compatible = "worldsemi,ws2812-spi";
 		label = "WS2812-2020";
@@ -56,6 +55,8 @@
 		/* WS2812-2020 */
 		spi-one-frame = <0x78>;
 		spi-zero-frame = <0x60>;
+		color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
+		reset-delay = <300>;
 	};
 };
 
