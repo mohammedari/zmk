@@ -46,4 +46,15 @@
 			, <12 0 &gpio0 13 0>
 			;
 	};
+
+	// Workaround to support settings_reset shield
+	pro_micro_d: connector_d {
+		compatible = "arduino-pro-micro";
+		#gpio-cells = <2>;
+		gpio-map-mask = <0xffffffff 0xffffffc0>;
+		gpio-map-pass-thru = <0 0x3f>;
+		gpio-map
+			= <4 0 &gpio0 8 0>		// IO1
+			;
+	};
 };
