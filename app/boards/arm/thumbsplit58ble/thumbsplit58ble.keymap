@@ -9,17 +9,6 @@
 #define ADJUST  3
 
 / {
-	behaviors {
-		gt: gui_tap {
-			compatible = "zmk,behavior-hold-tap";
-			label = "GUI_TAP";
-			#binding-cells = <2>;
-			tapping-term-ms = <200>;
-			flavor = "tap-preferred";
-			bindings = <&kp>, <&kp>;
-		};
-	};
-
 	keymap {
 		compatible = "zmk,keymap";
 
@@ -30,13 +19,13 @@
 // | TAB       |  Q  |  W  |  E  |  R  |  T  |          |  Y  |  U  |  I  |  O  |  P  |  @  |  [  |
 // | ESC(CTRL) |  A  |  S  |  D  |  F  |  G  |          |  H  |  J  |  K  |  L  |  ;  |  :  |  ]  |
 // | SHIFT     |  Z  |  X  |  C  |  V  |  B  |          |  N  |  M  |  ,  |  .  |  /  |  \  |
-//        | ALT | BSPC(LOWER) | SPACE(SHIFT) |          | ENTER(CTRL) | DEL(RAISE) | PRTSC | 
+//        | ALT | BSPC(LOWER) | SPACE(SHIFT) | xxx |    | ENTER(CTRL) | DEL(RAISE) | PRTSC | 
 			bindings = <
-&gt LGUI GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6           &kp N7 &kp N8    &kp N9  &kp N0   &kp MINUS &kp EQUAL &kp INT3
+&mt LGUI GRAVE &kp N1 &kp N2 &kp N3 &kp N4 &kp N5 &kp N6           &kp N7 &kp N8    &kp N9  &kp N0   &kp MINUS &kp EQUAL &kp INT3
 &kp TAB        &kp Q  &kp W  &kp E  &kp R  &kp T            &kp Y  &kp U  &kp I     &kp O   &kp P    &kp LBRC  &kp RBRC
 &mt LCTRL ESC  &kp A  &kp S  &kp D  &kp F  &kp G            &kp H  &kp J  &kp K     &kp L   &kp SEMI &kp SQT   &kp NON_US_HASH
 &kp LSHFT      &kp Z  &kp X  &kp C  &kp V  &kp B            &kp N  &kp M  &kp COMMA &kp DOT &kp FSLH &kp INT1
-         &kp LALT &lt LOWER BSPC &mt RSHFT SPACE            &mt RCTRL RET &lt RAISE DEL &kp PSCRN
+         &kp LALT &lt LOWER BSPC &mt RSHFT SPACE &none      &mt RCTRL RET &lt RAISE DEL &kp PSCRN
 			>;
 		};
 		lower_layer {
@@ -45,13 +34,13 @@
 // |   |    |    |    |    |    |          |   |    |    |    |     |     |     |
 // |   |    |    |    |    |    |          |   |    |    |    |     |     |     |
 // |   |    |    |    |    |    |          |   |    |    |    |     |     |
-//               |    |    |    |          |   |    |    | 
+//               |    |    |    | xx |     |   |    |    | 
 			bindings = <
 &trans &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6           &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12 &trans
 &trans &trans &trans &trans &trans &trans           &trans &trans &trans &trans &trans  &trans  &trans   
 &trans &trans &trans &trans &trans &trans           &trans &trans &trans &trans &trans  &trans  &trans   
 &trans &trans &trans &trans &trans &trans           &trans &trans &trans &trans &trans  &trans    
-                     &trans &trans &trans           &trans &lt ADJUST DEL &trans   
+                     &trans &trans &trans &none     &trans &lt ADJUST DEL &trans   
 			>;
 		};
 		raise_layer {
@@ -60,13 +49,13 @@
 // |   |    |    |    |    |    |          |      |      |    |       |     |     |     |
 // |   |    |    |    |    |    |          | Left | Down | Up | Right |     |     |     |
 // |   |    |    |    |    |    |          |      |      |    |       |     |     |
-//               |    |    |    |          |      |      |    | 
+//               |    |    |    | xx |     |      |      |    | 
 			bindings = <
 &trans &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6             &kp F7   &kp F8 &kp F9    &kp F10 &kp F11 &kp F12 &trans 
 &trans &trans &trans &trans &trans &trans           &trans   &trans   &trans &trans    &trans  &trans  &trans   
 &trans &trans &trans &trans &trans &trans           &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans  &trans  &trans   
 &trans &trans &trans &trans &trans &trans           &trans   &trans   &trans &trans    &trans  &trans    
-            &trans &lt ADJUST BSPC &trans           &trans   &trans   &trans   
+            &trans &lt ADJUST BSPC &trans &none     &trans   &trans   &trans   
 			>;
 		};
 		adjust_layer {
@@ -75,13 +64,13 @@
 // |   |     |     |     |     |     |          |   |     |     |     |     |   |   |
 // |   |     |     |     |     |     |          |   |     |     |     |     |   |   |
 // |   |     |     |     |     |     |          |   |     |     |     |     |   |
-//                 |     |     |     |          |   |     |     | 
+//                 |     |     |     | xxx |    |   |     |     | 
 			bindings = <
 &none      &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_SEL 5 &bt BT_SEL 6       &bt BT_SEL 7 &bt BT_SEL 8 &bt BT_SEL 9 &bt BT_SEL 0 &none &none &none 
 &none      &none        &none        &none        &none        &none                     &none &none        &none        &none        &none        &none &none  
 &bt BT_CLR &none        &none        &none        &none        &none                     &none &none        &none        &none        &none        &none &none  
 &none      &none        &none        &none        &none        &none                     &none &none        &none        &none        &none        &none   
-                                     &none        &trans       &none                     &none &trans       &none   
+                                     &none        &trans       &none        &none        &none &trans       &none   
 			>;
 		};
 	};
