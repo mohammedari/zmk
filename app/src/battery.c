@@ -9,6 +9,7 @@
 #include <kernel.h>
 #include <drivers/sensor.h>
 #include <bluetooth/services/bas.h>
+#include <power/power_state.h>
 
 #include <logging/log.h>
 
@@ -55,6 +56,11 @@ static int zmk_battery_update(const struct device *battery) {
 
         rc = ZMK_EVENT_RAISE(new_zmk_battery_state_changed(
             (struct zmk_battery_state_changed){.state_of_charge = last_state_of_charge}));
+    }
+
+    if (state_of_charge.val1 == 0) {
+        LOG_WRN("Shutting down due to low power (battery state of charge hits zero)");
+        pm_power_state_force((struct pm_state_info){PM_STATE_SOFT_OFF, 0, 0});
     }
 
     return rc;
